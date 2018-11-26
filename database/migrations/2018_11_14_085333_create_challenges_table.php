@@ -21,6 +21,8 @@ class CreateChallengesTable extends Migration
             $table->timestamps();
             $table->integer('challengenummer');
             $table->boolean('completed');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
     }
