@@ -28,21 +28,5 @@
                     @endforeach
                 </tbody>
             </table>
-            <!--
-            <br> <li> {{ $challenge->title}} </li> <br>
-            <b> What do I need to do for this challenge? </b> <br> {{ $challenge->description}} <br>
-            <b> Is this challenge completed? </b> <br> 
-            {{ $challenge->completed }} <br> -->
-        </div>
-
-<!--    if($challenge == 1) 
-                $challenge = "Yes";
-                else
-                $challenge = "No";
-                                            HOE KRIJG IK DIT IN DE blade extensie! (BOOLEAN naar yes or no)
-
-                                            Inserten in een tabel (view) 
--->
-       
-
+        </div>       
 @stop

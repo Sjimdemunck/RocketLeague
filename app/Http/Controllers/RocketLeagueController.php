@@ -18,17 +18,9 @@ class RocketLeagueController extends Controller
     public function challenge()
     {
 
-         $challenges = Challenge::all();
+        $challenges = Challenge::all();
 
-         /*
-         foreach ($challenges as $challenge)
-         {
-             echo $challenge->description;
-         }
-         dit kan ook op een simpeler manier achter de view.
-        */
-
-         return view ('challenge', compact('challenges'));
+         return view ('challenge', compact('challenges', 'klaas'));
     }
 
     public function searchPlayer()
@@ -39,16 +31,21 @@ class RocketLeagueController extends Controller
     public function searchAPlayer()
     {
         $searchPlayer = Input::get ('searchPlayer');
-        if($searchPlayer !="")
-        {
-            $user = User::where('name','LIKE','%'.$searchPlayer.'%')->orWhere('email','LIKE','%'.$searchPlayer.'%')->get();
 
-            if(count($user) > 0)
-                return view('searchAPlayer')->withDetails($user)->withSearchPlayer ($searchPlayer);
+        if ($searchPlayer) {
+            $users = User::where('name','LIKE','%'.$searchPlayer.'%')->orWhere('email','LIKE','%'.$searchPlayer.'%')->get();
 
-                else return view ('SearchAPlayer')->withMessage('No user found. Try to search again !');
+            if ($users->count()) {
+                return view('searchAPlayer', compact('users', 'searchPlayer'));
+            } else {
+                $message = "No user found. Try to search again !";
+
+                return view ('SearchAPlayer', compact('message'));
+            }
+
         }
-        return view ('SearchAPlayer')->withMessage('No user found. Try to search again !');
+        $message = "No user found. Try to search again !";
+        return view ('SearchAPlayer', compact('message'));
     }
 
     public function default()

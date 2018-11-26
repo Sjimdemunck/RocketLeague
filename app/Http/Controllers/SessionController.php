@@ -19,7 +19,8 @@ class SessionController extends Controller
                 'WrongCombination' => 'This username and password combination is not eligble, please try again!'
             ]);
         }
-        return redirect()->to('/login');
+        return redirect()->to('/challenge');
+
     }
     
     public function destroy()

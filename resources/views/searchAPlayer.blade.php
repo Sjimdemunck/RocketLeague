@@ -22,7 +22,7 @@
         </div>
 
         <div class="container">
-            @if(isset($details))
+            @if(isset($users))
                 <p> The search results for your query <b> {{ $searchPlayer }} </b> are :</p>
             <h2>User Details</h2>
             <table class="table table-striped">
@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($details as $user)
+                    @foreach($users as $user)
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>

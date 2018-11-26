@@ -19,6 +19,7 @@ class CreateChallengesTable extends Migration
             $table->unsignedinteger('user_id');
             $table->mediumText('description');
             $table->timestamps();
+            $table->integer('challengenummer');
             $table->boolean('completed');
         });
 
