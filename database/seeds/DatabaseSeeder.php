@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   // voor meerdere Seeders aan te vragen
         $this->call([
             UsersTableSeeder::class,
             ChallengesTableSeeder::class]);

@@ -2,8 +2,11 @@
 
 namespace App;
 
+use App\Challenge;
+use App\Experience;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -17,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','phone',
     ];
 
     /**
@@ -40,5 +43,15 @@ class User extends Authenticatable
     public function challenges()
     {
         return $this->hasMany(Challenge::class);
+    }
+
+    public function experiences()
+    {
+        return $this->HasOne(Experience::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
