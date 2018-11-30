@@ -16,7 +16,7 @@ class ChallengesTableSeeder extends Seeder
         $users = User::pluck('id');
         Challenge::truncate();
         
-        for ($i = 0; $i <= 1000; $i++) {
+        for ($i = 0; $i <= 250; $i++) {
             Challenge::create([
                 'title' => str_random(10),
                 'user_id' => $users->random(),
