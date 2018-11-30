@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Comment extends Model
 {
     public function Post()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsTo(Post::class);
     }
 }
