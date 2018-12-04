@@ -40,11 +40,17 @@ class User extends Authenticatable
 
     public function challenges()
     {
-        return $this->hasMany(Challenge::class);
-    }
+        return $this->belongsToMany(Challenge::class);
+    }//A user can have many challenges. A challenge could have more users. ManytoMany
 
-    public function Profile()
+    public function profile()
     {
         return $this->hasOne(Profile::class);
-    }
+    }//A user has one Profile. A profile belongs to one user. oneToOne
+
+    public function guild()
+    {
+        return $this->hasOne(Guild::class);
+    }//A user has one Guild. A Guild has many users. oneToMany = User->Guild
+
 }

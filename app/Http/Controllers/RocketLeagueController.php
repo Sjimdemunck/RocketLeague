@@ -30,7 +30,7 @@ class RocketLeagueController extends Controller
 
     public function searchAPlayer()
     {
-        $searchPlayer = Input::get ('searchPlayer');
+        $searchPlayer = Input::get('searchPlayer');
 
         if ($searchPlayer) {
             $users = User::where('name','LIKE','%'.$searchPlayer.'%')->orWhere('email','LIKE','%'.$searchPlayer.'%')->get();
@@ -60,17 +60,16 @@ class RocketLeagueController extends Controller
 
     public function store()
     {
-      
-$this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-        
-        $user = User::create(request(['name', 'email', 'password']));
-        
-        auth()->login($user);
-        
+        $this->validate(request(), [
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+                'phone' => 'required'
+            ]);
+            
+        $user = User::create(request(['name', 'email', 'password', 'phone']));
+            auth()->login($user);
+            
         return redirect()->to('/register');
     }
 }

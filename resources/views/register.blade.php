@@ -22,10 +22,13 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
- 
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="phone" class="form-control" id="phone" name="password">
+        </div>
+
         <div class="form-group">
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
-            or click here to log in -->
             <a class="btn btn-secondary btn-lg" href="/login" role="button">Login </a>
         </div>
     </form>
