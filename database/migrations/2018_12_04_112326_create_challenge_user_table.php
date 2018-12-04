@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChallengesTable extends Migration
+class CreateChallengeUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateChallengesTable extends Migration
      */
     public function up()
     {
-        Schema::create('challenges', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->unsignedinteger('user_id');
-            $table->mediumText('description');
-            $table->timestamps();
-            $table->integer('challengenummer');
-            $table->boolean('completed');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
+        Schema::create('challenge_user', function (Blueprint $table) {
+            $table->primary(['challenge_id','user_id']);
+            $table->unsignedInteger('challenge_id');
+            $table->unsignedInteger('user_id');
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -33,6 +31,6 @@ class CreateChallengesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('challenges');
+        Schema::dropIfExists('challenge_user');
     }
 }

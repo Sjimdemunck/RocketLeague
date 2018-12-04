@@ -53,4 +53,8 @@ class User extends Authenticatable
         return $this->hasOne(Guild::class);
     }//A user has one Guild. A Guild has many users. oneToMany = User->Guild
 
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
