@@ -22,10 +22,10 @@ class SessionController extends Controller
         return redirect()->to('/challenge');
 
     }
-    
+
     public function destroy()
     {
         auth()->logout();
-        return redirect()->to('/');
+        return redirect()->to('/challenge');
     }
 }
