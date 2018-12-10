@@ -1,20 +1,23 @@
-@extends ('app')
-
-@section('title', 'Page Title')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-<title> Home Page </title>
-    <h1>RocketLeague</h1>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-    <div>
-        This is the homepage of RocketLeague Challenges!
-        Feel free to sign up and get some challenges done!!
+                    You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div>
-        <a class="btn btn-primary btn-lg" href="/register" role="button">Sign up! </a>
-        <a class="btn btn-secondary btn-lg" href="/login" role="button">Login </a>
-    </div>
-        
-@stop
+</div>
+@endsection
